@@ -1,0 +1,24 @@
+{
+  "name": "Auto login",
+  "description": " auto log into account manager",
+  "version": "0.00.01",
+  "manifest_version": 3,
+  "icons": {
+    "16": "./ico-16x16.png",
+    "32": "./ico-32x32.png",
+    "48": "./ico-48x48.png",
+    "128": "./ico-128x128.png"
+  },
+  "background": {
+    "service_worker": "./backend.js"
+  },
+  "browser_action": {
+    "default_popup": "./popup.html"
+  },
+  "permissions": [
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.aetna.com/*"
+  ]
+}

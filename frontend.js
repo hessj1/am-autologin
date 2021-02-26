@@ -1,4 +1,7 @@
-console.info('front end loaded...');
+if(document.location.href .includes('aetna.com/AccountManager')) {
+
+}
+console.error('front end loaded...');
 const username = document.getElementById('username');
 const password = document.getElementById('password');
 const btn = document.getElementById('loginButton');
@@ -14,4 +17,3 @@ if(!hasError){
 } else {
   console.error({error: error});
 }
-

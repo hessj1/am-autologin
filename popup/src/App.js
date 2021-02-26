@@ -1,9 +1,14 @@
+import AddUser from './components/AddUser/AddUser';
 import './App.css';
+
 
 function App() {
   return (
     <div className="App">
-      Hello World
+      <div className="heading-container">
+        <h2>Users</h2>
+        <AddUser />
+      </div>
     </div>
   );
 }

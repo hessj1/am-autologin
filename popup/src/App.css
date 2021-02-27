@@ -1,9 +1,10 @@
 .App {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 500px;
   height: 300px;
   padding: 10px;
+  border: 1px solid #fefefe;
 }
 
 .heading-container {

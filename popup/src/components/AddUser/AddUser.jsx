@@ -1,17 +1,26 @@
 import { useState } from 'react';
 import './AddUser.css';
 
-function AddUser () {
+function AddUser ({doSave}) {
   const [addOpen, setAddOpen] = useState(false);
-  const [userInfo, updateUser] = useState({username: undefined, password: undefined, nickName: undefined});
+  const [userInfo, updateUser] = useState({username: '', password: '', nickName: ''});
   const { username, password, nickName } = userInfo;
   const handleButtonClick = () => {
     setAddOpen(!addOpen);
   };
 
   const handleInput = (e, type) => {
-    updateUser(prev=>({...prev, [type]: e.value}))
+    updateUser(prev=>({...prev, [type]: e?.target?.value}))
   };
+
+  const handleClose = e => {
+    setAddOpen(false);
+  };
+
+  const handleSave = () => {
+    doSave(userInfo);
+    setAddOpen(false);
+  }
 
   return (
     <div className="add-user-container">
@@ -20,13 +29,13 @@ function AddUser () {
       </button>
       {addOpen &&
         <div className="add-user-input">
-          <button className="close">X</button>
+          <button className="close" onClick={handleClose}>X</button>
           <div className="add-user-row">
             <input value={username} type="text" placeholder="username" onInput={e=>handleInput(e, 'username')} />
             <input value={password} type="text" placeholder="password" onInput={e=>handleInput(e, 'password')} />
           </div>
           <input value={nickName} type="text" placeholder="name" className="add-user-name full-width"  onInput={e=>handleInput(e, 'nickName')} />
-          <button>Add user</button>
+          <button onClick={handleSave}>Add user</button>
         </div>
       }
     </div>);

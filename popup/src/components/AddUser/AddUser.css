@@ -91,12 +91,17 @@ button.add-user.open {
 }
 
 .add-user-input button {
-  border: 2px solid #000;
+  border: none;
+  background: #efefef;
   padding: 5px;
   width: 100%;
+  box-shadow: 1px 2px 0 #000;
+  border-radius: 2px;
 }
 
 .add-user-input button.close {
   border: 0;
   background: none;
+  box-shadow: none;
+  width: 20px;
 }

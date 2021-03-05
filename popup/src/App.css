@@ -10,14 +10,18 @@
 .heading-container {
   display: flex;
   align-items: center;
+  margin-block-end: 10px;
 }
 
-.heading-container h2 {
-  margin-right: 20px;
+.heading-container h3 {
+  margin:0;
+  margin-inline-end: 20px;
+  padding: 0;
 }
 
 .user-container {
-  padding: 10px;
+  margin-inline-end: 7px;
+  padding: 6px 11px;
   background: rgb(244 244 244);
   background: linear-gradient(180deg, rgb(244 244 244) 0%, rgba(255,255,255,1) 100%);
   border-radius: 4px;
@@ -71,4 +75,16 @@
 
 .user-container .user-env label {
   margin-right: 22px;
+}
+
+.user-container .user-list {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.add-user-container .add-user-label {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }

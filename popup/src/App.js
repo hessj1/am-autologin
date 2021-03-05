@@ -30,10 +30,13 @@ function App() {
   return (
     <div className="App">
       <div className="heading-container">
-        <h2>Users</h2>
+        <h3>Users</h3>
         <AddUser doSave={saveUser}/>
       </div>
-      {Object.keys(userList).map(key=><UserItem key={key} userInfo={userList[key]} updateEnv={(env)=>updateEnv(key, env)} removeEnv={removeEnv} />)}
+      <div className="user-list">
+        {Object.keys(userList).map(key=><UserItem key={key} userInfo={userList[key]} updateEnv={(env)=>updateEnv(key, env)} removeEnv={removeEnv} />)}
+      </div>
+      
     </div>
   );
 }

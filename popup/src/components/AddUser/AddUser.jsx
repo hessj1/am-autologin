@@ -40,7 +40,10 @@ function AddUser ({doSave}) {
         <span>+</span> add user
       </button>
       <div className={`add-user-input${addOpen ? ' open' : ' closed'}`}>
-        <button className="close" onClick={handleClose}><img src={closeButton} alt="Close window"/></button>
+        <div className="add-user-label">
+          <div>{`${nickname ? `${nickname} - `: ''}${username}`}</div>
+          <button className="close" onClick={handleClose}><img src={closeButton} alt="Close window"/></button>
+        </div>
         <div className="add-user-row">
           <input value={username} type="text" placeholder="username" onInput={e=>handleInput(e, 'username')} />
           <input value={password} type="text" placeholder="password" onInput={e=>handleInput(e, 'password')} />

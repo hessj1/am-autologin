@@ -27,11 +27,25 @@ function App() {
   }
 
   const handleDelete = username => {
+    // Remove user from user list.
     updateUserList(prev=>{
       delete prev[username];
       return {...prev};
     });
+
+    // Remove user from env list.
+    updateEnvUser(prev=>{
+      Object.keys(prev).forEach(env=>{
+        const thisUser = prev[env];
+        if(thisUser === username){
+          delete prev[env];
+        }
+      })
+      return {...prev}
+    });
   };
+
+  console.error(envUser);
 
   return (
     <div className="App">

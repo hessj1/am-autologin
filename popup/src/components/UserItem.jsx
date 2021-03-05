@@ -1,6 +1,8 @@
+import deleteButton from './trash.svg';
+import editButton from './pen.svg';
 const envList = ['lab','dev', 'test'];
 
-function UserItem ({ userInfo = {}, updateEnv, removeEnv }) {
+function UserItem ({ userInfo = {}, removeUser, updateEnv, removeEnv }) {
   const { username, password, nickname } = userInfo;
 
   const handleClick = (env) => {
@@ -38,8 +40,11 @@ function UserItem ({ userInfo = {}, updateEnv, removeEnv }) {
           ))}
           <button onClick={handleClear}>clear</button>
         </fieldset>
+        <div className="right-row">
+          <button className="btn-edit" onClick={()=>{}} style={{backgroundImage:`url(${editButton})`}}>edit</button>
+          <button className="btn-delete" onClick={removeUser} style={{backgroundImage:`url(${deleteButton})`}}>delete</button>
+        </div>
       </div>
-      
     </div>
   );
 }

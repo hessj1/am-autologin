@@ -31,6 +31,7 @@
 
 .user-container .user-row {
   display: flex;
+  justify-content: space-between;
   margin-bottom: 10px;
 }
 
@@ -87,4 +88,28 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+}
+
+.user-list button {
+  margin-inline-end: 10px;
+}
+
+.user-list button:last-child {
+  margin-inline-end: 0;
+}
+
+.user-list .right-row .btn-edit,
+.user-list .right-row .btn-delete {
+  border: none;
+  padding: 0;
+  height: 21.333px;
+  width: 53px;
+  background-size: 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: rgba(0,0,0,0);
+}
+
+.user-list .right-row .btn-delete {
+  background-size: 13px;
 }

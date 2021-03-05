@@ -22,11 +22,17 @@ function App() {
       if(thisUpdate === username && prev.hasOwnProperty(env)) {
         delete prev[env];
       }
-      return prev
+      return {...prev}
     });
   }
 
-  console.error(envUser);
+  const handleDelete = username => {
+    updateUserList(prev=>{
+      delete prev[username];
+      return {...prev};
+    });
+  };
+
   return (
     <div className="App">
       <div className="heading-container">
@@ -34,7 +40,15 @@ function App() {
         <AddUser doSave={saveUser}/>
       </div>
       <div className="user-list">
-        {Object.keys(userList).map(key=><UserItem key={key} userInfo={userList[key]} updateEnv={(env)=>updateEnv(key, env)} removeEnv={removeEnv} />)}
+        {Object.keys(userList).map(key=>(
+          <UserItem
+            key={key}
+            userInfo={userList[key]}
+            removeUser={()=>handleDelete(key)}
+            updateEnv={(env)=>updateEnv(key, env)}
+            removeEnv={removeEnv}
+          />
+        ))}
       </div>
       
     </div>

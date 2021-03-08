@@ -113,3 +113,25 @@
 .user-list .right-row .btn-delete {
   background-size: 13px;
 }
+
+.user-edit {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background: #fff;
+  padding: 20px 10px;
+  padding-top: 7px;
+  border-radius: 5px;
+  box-shadow: 0 0 0 8000px rgb(0 0 0 / 20%), 3px 3px rgba(0,0,0,0.9);
+  left: 72px;
+}
+
+.user-edit .close {
+  border: 0;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  width: 19px;
+  margin: 0;
+  align-self: flex-end;
+}

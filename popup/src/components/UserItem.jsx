@@ -1,4 +1,5 @@
-import deleteButton from './trash.svg';
+import UserEdit from './UserEdit';
+import deleteButton from './trash-alt.svg';
 import editButton from './pen.svg';
 const envList = ['lab','dev', 'test'];
 
@@ -25,6 +26,7 @@ function UserItem ({ userInfo = {}, removeUser, updateEnv, removeEnv }) {
 
   return (
     <div className="user-container">
+      <UserEdit />
       <div className="user-row">
         <div className="user-part">
           {nickname && <span>{`${nickname} - `}</span>}{username}

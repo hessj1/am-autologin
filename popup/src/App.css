@@ -124,6 +124,7 @@
   border-radius: 5px;
   box-shadow: 0 0 0 8000px rgb(0 0 0 / 20%), 3px 3px rgba(0,0,0,0.9);
   left: 72px;
+  top: 29px;
 }
 
 .user-edit .close {
@@ -134,4 +135,22 @@
   width: 19px;
   margin: 0;
   align-self: flex-end;
+}
+
+.user-edit input {
+  margin-bottom: 10px;
+  border: 2px solid #606f83;
+  padding: 7px;
+}
+
+.user-edit input:disabled {
+  background-color: #d7dce2;
+}
+
+.user-edit .user-edit-up input {
+  margin-right: 10px;
+}
+
+.user-edit .user-edit-up input:last-child {
+  margin-right: 0;
 }

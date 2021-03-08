@@ -1,10 +1,12 @@
+import { useState } from 'react';
 import UserEdit from './UserEdit';
 import deleteButton from './trash-alt.svg';
 import editButton from './pen.svg';
 const envList = ['lab','dev', 'test'];
 
-function UserItem ({ userInfo = {}, removeUser, updateEnv, removeEnv }) {
-  const { username, password, nickname } = userInfo;
+function UserItem ({ userInfo = {}, removeUser, updateEnv, removeEnv, updateUser }) {
+  const { username, nickname } = userInfo;
+  const [ showUserEdit, updateShowUserEdit ] = useState(false);
 
   const handleClick = (env) => {
     const thisEl = document.getElementById(`${username}-${env}`);
@@ -26,7 +28,7 @@ function UserItem ({ userInfo = {}, removeUser, updateEnv, removeEnv }) {
 
   return (
     <div className="user-container">
-      <UserEdit />
+      <UserEdit userInfo={userInfo} show={showUserEdit} showChange={updateShowUserEdit} updateUser={updateUser} />
       <div className="user-row">
         <div className="user-part">
           {nickname && <span>{`${nickname} - `}</span>}{username}
@@ -36,14 +38,19 @@ function UserItem ({ userInfo = {}, removeUser, updateEnv, removeEnv }) {
         <fieldset className="user-env">
           {envList.map(env=>(
             <div key={`${username}-${env}`}>
-              <input id={`${username}-${env}`} type="radio" name={`env-${env}`} onChange={()=>handleChange(env)}/>
+              <input
+                id={`${username}-${env}`}
+                type="radio"
+                name={`env-${env}`}
+                onChange={()=>handleChange(env)}
+              />
               <label onClick={()=>handleClick(env)}>{env}</label>
             </div>
           ))}
           <button onClick={handleClear}>clear</button>
         </fieldset>
         <div className="right-row">
-          <button className="btn-edit" onClick={()=>{}} style={{backgroundImage:`url(${editButton})`}}>edit</button>
+          <button className="btn-edit" onClick={()=>{updateShowUserEdit(true)}} style={{backgroundImage:`url(${editButton})`}}>edit</button>
           <button className="btn-delete" onClick={removeUser} style={{backgroundImage:`url(${deleteButton})`}}>delete</button>
         </div>
       </div>

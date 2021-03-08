@@ -46,6 +46,7 @@ function App() {
   };
 
   console.error(envUser);
+  console.error(userList);
 
   return (
     <div className="App">
@@ -61,6 +62,14 @@ function App() {
             removeUser={()=>handleDelete(key)}
             updateEnv={(env)=>updateEnv(key, env)}
             removeEnv={removeEnv}
+            updateUser={(userInfo)=>{
+              updateUserList(prev=>{
+                if(userInfo.username !== key){
+                  delete prev[key];
+                }
+                return {...prev, [userInfo.username]: userInfo};
+              });
+            }}
           />
         ))}
       </div>

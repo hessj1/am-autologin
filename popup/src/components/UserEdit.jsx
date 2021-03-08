@@ -18,7 +18,10 @@ function UserEdit ({show, userInfo, showChange, updateUser}) {
     updateUser({username, password, nickname});
     showChange(false)
   };
-  const handleClose = () => {showChange(false)};
+  const handleClose = () => {
+    updateThisUser({...userInfo});
+    showChange(false)
+  };
 
   return (
     <>

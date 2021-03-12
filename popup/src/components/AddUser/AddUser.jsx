@@ -14,7 +14,6 @@ function AddUser ({doSave}) {
     } else {
       handleClose();
     }
-    
   };
 
   const handleInput = (e, type) => {

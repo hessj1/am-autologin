@@ -45,9 +45,6 @@ function App() {
     });
   };
 
-  console.error(envUser);
-  console.error(userList);
-
   return (
     <div className="App">
       <div className="heading-container">

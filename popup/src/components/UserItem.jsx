@@ -37,7 +37,7 @@ function UserItem ({ userInfo = {}, removeUser, updateEnv, removeEnv, updateUser
       <div className="user-row">
         <fieldset className="user-env">
           {envList.map(env=>(
-            <div key={`${username}-${env}`}>
+            <div key={`${username}-${env}`} className="env-continer">
               <input
                 id={`${username}-${env}`}
                 type="radio"

@@ -1,0 +1,57 @@
+.switch-container {
+  display: flex;
+  align-items: center;
+}
+
+.switch-container label {
+  margin-inline-end: 12px;
+  margin-block-start: 3px;
+  width: 116px;
+  user-select: none;
+}
+
+.switch {
+  border: 2px solid #909090;
+  box-sizing: border-box;
+  box-shadow: inset 0 0 0 0 #000;
+  width: 63px;
+  height: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 120ms;
+}
+
+.switch.checked {
+  border: 2px solid #000;
+  box-shadow: inset 3px 3px 0px #000;
+  transition: 120ms ease-in-out;
+}
+
+.switch .checkbox {
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+.switch-button {
+  box-shadow: 1px 1px 0px #8b8b8b, 4px 4px 0px 0px #9b9b9b;
+  background: #fff;
+  display: flex;
+  height: 26px;
+  width: 26px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-sizing: border-box;
+  position: relative;
+  transition: 120ms ease-in-out;
+}
+
+.switch-button.checked {
+  box-shadow: -1px 4px 1px 0px #454545;
+  transform: translateX(33px);
+  transition: 150ms ease-in-out;
+  background-image: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 16%, rgba(121,223,255,1) 6%, rgb(15, 168, 214) 100%);
+  background-color: rgb(44 184 228);
+  background-position: 2px -5px;
+  background-size: 30px;
+}

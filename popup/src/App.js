@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import AddUser from './components/AddUser/AddUser';
 import UserItem from './components/UserItem';
+import Switch from './components/Switch';
 import './App.css';
 
 
@@ -48,8 +49,11 @@ function App() {
   return (
     <div className="App">
       <div className="heading-container">
-        <h3>Users</h3>
-        <AddUser doSave={saveUser}/>
+        <div className="heading-left">
+          <h3>Users</h3>
+          <AddUser doSave={saveUser}/>  
+        </div>
+        <Switch />
       </div>
       <div className="user-list">
         {Object.keys(userList).map(key=>(

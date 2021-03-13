@@ -7,16 +7,26 @@
   overflow-y: auto;
 }
 
+.App .checkbox {
+  opacity: 0;
+}
+
 .heading-container {
   display: flex;
   align-items: center;
   margin-block-end: 10px;
+  justify-content: space-between;
 }
 
 .heading-container h3 {
   margin:0;
   margin-inline-end: 20px;
   padding: 0;
+  align-self: center;
+}
+
+.heading-container .heading-left {
+  display: flex;
 }
 
 .user-container {
@@ -68,10 +78,17 @@
   margin: 0;
 }
 
+.user-container .user-env .env-continer {
+  display: flex;
+  align-items: end;
+}
+
 .user-container .user-env input {
   margin: 0;
   margin-right: 6px;
   padding: 0;
+  width: 19px;
+  height: 19px;
 }
 
 .user-container .user-env label {

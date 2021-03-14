@@ -22,7 +22,8 @@
   margin:0;
   margin-inline-end: 20px;
   padding: 0;
-  align-self: center;
+  align-self: flex-end;
+  font-size: 18px;
 }
 
 .heading-container .heading-left {
@@ -80,7 +81,7 @@
 
 .user-container .user-env .env-continer {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .user-container .user-env input {

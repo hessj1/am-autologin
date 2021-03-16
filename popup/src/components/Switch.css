@@ -4,11 +4,11 @@
 }
 
 .switch-container label {
-  margin-inline-end: 12px;
+  margin-inline-end: -8px;
   margin-block-start: 4px;
   width: 116px;
   user-select: none;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .switch {
@@ -20,6 +20,7 @@
   border-radius: 15px;
   overflow: hidden;
   transition: 120ms;
+  transform: scale(.80);
 }
 
 .switch.checked {

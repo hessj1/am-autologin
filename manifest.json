@@ -16,7 +16,8 @@
     "default_popup": "./popup.html"
   },
   "permissions": [
-    "tabs"
+    "tabs",
+    "storage"
   ],
   "host_permissions": [
     "https://www.aetna.com/*"

@@ -2,6 +2,11 @@ if(document.location.href .includes('aetna.com/AccountManager')) {
 
 }
 console.error('front end loaded...');
+if(chrome.storage){
+  chrome.storage.local.get(['hello'], function(result) {
+    console.log(result);
+  });
+}
 const username = document.getElementById('username');
 const password = document.getElementById('password');
 const btn = document.getElementById('loginButton');

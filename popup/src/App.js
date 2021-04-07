@@ -64,7 +64,7 @@ function App() {
       updateEnvUser(result.userEnv);
     });
   }, [])
-
+  console.error(userList);
   return (
     <div className="App">
       <div className="heading-container">
@@ -75,7 +75,7 @@ function App() {
         <Switch />
       </div>
       <div className="user-list">
-        {Object.keys(userList).map(key=>(
+        {Object.keys(userList || {}).map(key=>(
           <UserItem
             key={key}
             userInfo={userList[key]}

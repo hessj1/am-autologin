@@ -21,5 +21,13 @@
   ],
   "host_permissions": [
     "https://www.aetna.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.aetna.com/AccountManagerV3/*"
+      ],
+      "js": ["frontend.js"]
+    }
   ]
 }

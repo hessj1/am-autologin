@@ -4,7 +4,7 @@ import deleteButton from './trash-alt.svg';
 import editButton from './pen.svg';
 const envList = ['lab','dev', 'test'];
 
-function UserItem ({ userInfo = {}, removeUser, updateEnv, removeEnv, updateUser }) {
+function UserItem ({ userInfo = {}, userEnv= {}, removeUser, updateEnv, removeEnv, updateUser }) {
   const { username, nickname } = userInfo;
   const [ showUserEdit, updateShowUserEdit ] = useState(false);
 
@@ -25,7 +25,7 @@ function UserItem ({ userInfo = {}, removeUser, updateEnv, removeEnv, updateUser
       thisEl.checked=false;
     });
   }
-
+  console.error(userEnv);
   return (
     <div className="user-container">
       <UserEdit userInfo={userInfo} show={showUserEdit} showChange={updateShowUserEdit} updateUser={updateUser} />
@@ -43,6 +43,8 @@ function UserItem ({ userInfo = {}, removeUser, updateEnv, removeEnv, updateUser
                 type="radio"
                 name={`env-${env}`}
                 onChange={()=>handleChange(env)}
+                checked={userEnv[env] === username}
+                readOnly
               />
               <label onClick={()=>handleClick(env)}>{env}</label>
             </div>

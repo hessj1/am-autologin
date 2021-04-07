@@ -1,10 +1,10 @@
-if(document.location.href .includes('aetna.com/AccountManager')) {
 
-}
-console.error('front end loaded...');
 if(chrome.storage){
   chrome.storage.local.get(['hello'], function(result) {
     console.log(result);
+  });
+  chrome?.storage?.local?.get(['userData', 'userEnv'], userData => {
+    console.error('Got userData', userData);
   });
 }
 const username = document.getElementById('username');
@@ -17,8 +17,7 @@ password.value = 'Prod1prod';
 const hasError = error?.style?.display !== 'none';
 
 if(!hasError){
-  console.error('button Click', error);
   btn.click();
 } else {
-  console.error({error: error});
+  console.error("Auto login prevented due to error on screen");
 }

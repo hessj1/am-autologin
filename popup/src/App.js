@@ -1,4 +1,5 @@
-import { useState } from 'react';
+/*global chrome*/
+import { useState, useEffect } from 'react';
 import AddUser from './components/AddUser/AddUser';
 import UserItem from './components/UserItem';
 import Switch from './components/Switch';
@@ -7,14 +8,21 @@ import './App.css';
 
 function App() {
   const [userList, updateUserList] = useState({});
-  const [envUser, updateEnvUser] = useState({});
+  const [userEnv, updateEnvUser] = useState({});
 
   const saveUser = (user) => {
-    updateUserList(prev=>({...prev, [user.username]: user}));
+    updateUserList(prev=>{
+      chrome?.storage?.local?.set({userData: {...prev, [user.username]: user}});
+      return {...prev, [user.username]: user}
+    });
   }
 
   const updateEnv = (username, env) => {
-    updateEnvUser(prev=>({...prev,[env]: username }));
+    
+    updateEnvUser(prev=>{
+      chrome?.storage?.local?.set({userEnv: {...prev,[env]: username }});
+      return {...prev,[env]: username }
+    });
   };
 
   const removeEnv = (username, env) => {
@@ -23,6 +31,7 @@ function App() {
       if(thisUpdate === username && prev.hasOwnProperty(env)) {
         delete prev[env];
       }
+      chrome?.storage?.local?.set({userEnv: {...prev}});
       return {...prev}
     });
   }
@@ -31,6 +40,7 @@ function App() {
     // Remove user from user list.
     updateUserList(prev=>{
       delete prev[username];
+      chrome?.storage?.local?.set({userData: {...prev}});
       return {...prev};
     });
 
@@ -42,9 +52,18 @@ function App() {
           delete prev[env];
         }
       })
+      chrome?.storage?.local?.set({userEnv: {...prev}});
       return {...prev}
     });
   };
+
+  useEffect(() => {
+    chrome?.storage?.local?.get(['userData', 'userEnv'], result => {
+      console.error('Got userData', result);
+      updateUserList(result.userData);
+      updateEnvUser(result.userEnv);
+    });
+  }, [])
 
   return (
     <div className="App">
@@ -60,6 +79,7 @@ function App() {
           <UserItem
             key={key}
             userInfo={userList[key]}
+            userEnv={userEnv}
             removeUser={()=>handleDelete(key)}
             updateEnv={(env)=>updateEnv(key, env)}
             removeEnv={removeEnv}
